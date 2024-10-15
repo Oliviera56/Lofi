@@ -1293,3 +1293,16 @@ div[class*="layer"] {
     box-shadow: 0 0 15px rgba(31, 82, 31, 0.3);
   }
 }
+/* Animation de fade-in pour les caractères saisis */
+.textArea-2Spzkt span {
+  animation: fadeInChar 0.3s forwards;
+}
+
+@keyframes fadeInChar {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
