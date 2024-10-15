@@ -1306,3 +1306,16 @@ div[class*="layer"] {
       opacity: 1;
   }
 }
+/* Effet de lueur lors de la saisie de texte */
+.input-effect {
+    animation: inputGlow 0.3s;
+}
+
+@keyframes inputGlow {
+    from {
+        box-shadow: 0 0 0px rgba(31, 82, 31, 0.5);
+    }
+    to {
+        box-shadow: 0 0 10px rgba(31, 82, 31, 0.8);
+    }
+}
