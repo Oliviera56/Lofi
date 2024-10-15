@@ -846,17 +846,7 @@ button:hover::before,
   transform: scale(3);
   transition: transform 0.3s ease-in-out;
 }
-/* Effet de fondu sur les nouveaux messages */
-.messageListItem-ZZ7v6g {
-  opacity: 0;
-  animation: fadeInMessage 0.5s forwards;
-}
 
-@keyframes fadeInMessage {
-  to {
-    opacity: 1;
-  }
-}
 /* Lueur subtile autour des avatars des utilisateurs en ligne */
 .member-2FrNV0.online-1YAvBq .avatar-1BDn8e {
   box-shadow: 0 0 5px rgba(31, 82, 31, 0.8);
@@ -1101,18 +1091,6 @@ img[class*="image"]:hover {
   transition: transform 0.3s ease-in-out;
 }
 
-/* 7. Effet de fondu sur les nouveaux messages */
-li[class*="messageListItem"],
-div[class*="message"] {
-  opacity: 0;
-  animation: fadeInMessage 1s forwards;
-}
-
-@keyframes fadeInMessage {
-  to {
-    opacity: 1;
-  }
-}
 
 /* 8. Lueur subtile autour des avatars des utilisateurs en ligne */
 div[class*="member"].statusOnline .avatar img {
@@ -1305,17 +1283,4 @@ div[class*="layer"] {
   to {
       opacity: 1;
   }
-}
-/* Effet de lueur lors de la saisie de texte */
-.input-effect {
-    animation: inputGlow 0.3s;
-}
-
-@keyframes inputGlow {
-    from {
-        box-shadow: 0 0 0px rgba(31, 82, 31, 0.5);
-    }
-    to {
-        box-shadow: 0 0 10px rgba(31, 82, 31, 0.8);
-    }
 }
