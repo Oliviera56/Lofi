@@ -252,12 +252,11 @@ a:hover::after {
 }
 
 /* ============================
-   7. message animation
+   7. Message Animation
    ============================ */
 
-
 /* Style de base pour les messages */
-.message {
+div[id^="message-content-"] {
   background: var(--background-secondary-alt);
   color: var(--color-text);
   padding: 10px 15px;
@@ -272,7 +271,7 @@ a:hover::after {
 }
 
 /* Lorsque le message est confirmé par Discord */
-.message.received {
+div[id^="message-content-"].received {
   opacity: 1;
   transform: translateY(0); /* Vous pouvez ajuster cette transformation si nécessaire */
   box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2), 0 0 20px rgba(31, 82, 31, 0.7);
