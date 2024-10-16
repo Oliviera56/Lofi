@@ -44,7 +44,7 @@
   --shadow-secondary: 0 1px 2px rgba(0, 255, 0, 0.1);
 
   /* Transitions */
-  --transition-speed: 0.s; /* Modifié de 3s à 2s pour des transitions plus rapides */
+  --transition-speed: 0.3s; /* Correction de la valeur erronée */
 
   /* Backgrounds */
   --background-primary: #000000; /* Pure Black */
@@ -197,257 +197,19 @@ a:hover::after {
 }
 
 /* ============================
-   4. Additional Animations for 10 Categories
+   4. Animated Text Fields
    ============================ */
 
-/* 1. Textarea d'Envoi de Message */
-div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b {
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.1s ease;
-  border: 2px solid var(--interactive-normal);
-  border-radius: var(--border-radius);
-}
-
-div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b:hover {
-  box-shadow: 0 4px 7px rgba(0, 200, 0, 0.3);
+/* Style de base pour le champ de texte */
+.animated-text-field {
+  transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+  box-shadow: 0 0 10px var(--color-accent);
   transform: scale(1.02);
 }
 
-div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b:focus {
-  border-color: var(--interactive-hover);
-  box-shadow: 0 0 4px var(--interactive-hover);
-  transform: scale(1.03);
-}
-
-/* 2. Liste des Messages Privés */
-ul.content_eed6a8 li {
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeInUp 0.5s forwards;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-ul.content_eed6a8 li:hover {
-    background: var(--background-secondary-alt);
-    transform: translateY(-2px);
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-/* 3. Conteneur Générique */
-div.children_fc4f04 {
-    /* Remplacer la rotation par un effet de flottement moderne */
-    animation: float 3s ease-in-out infinite;
-    transition: transform 0.3s ease;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-div.children_fc4f04:hover {
-    animation-play-state: paused;
-    transform: scale(1.05);
-}
-
-/* 4. Rectangle avec Pointer Events */
-rect.pointerEvents_c51b4e {
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.7;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0.7;
-    }
-}
-
-rect.pointerEvents_c51b4e:hover {
-    animation: pulse 1s infinite;
-}
-
-/* 5. Contenu Intérieur du Bouton */
-div.contents_dd4f85.buttonInner_f9d37d {
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: slideIn 0.5s forwards;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-@keyframes slideIn {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-div.contents_dd4f85.buttonInner_f9d37d:hover {
-    background-color: var(--interactive-hover);
-    transform: translateX(5px);
-}
-
-/* 6. Fond d'Overlay Complet */
-div.fullSizeOverlayBackground_c69a7b.overlayBackground_c69a7b.overlay_b9fccc {
-    opacity: 0;
-    animation: fadeInOverlay 0.5s forwards;
-    transition: opacity 0.3s ease;
-}
-
-@keyframes fadeInOverlay {
-    to {
-        opacity: 1;
-    }
-}
-
-div.fullSizeOverlayBackground_c69a7b.overlayBackground_c69a7b.overlay_b9fccc:hover {
-    opacity: 0.8;
-}
-
-/* 7. Item Thématisé */
-div.item_a0.themed_a0 {
-    position: relative;
-    overflow: hidden;
-    transition: box-shadow 0.3s ease;
-}
-
-div.item_a0.themed_a0:hover {
-    box-shadow: 0 0 15px var(--color-accent);
-}
-
-div.item_a0.themed_a0:active::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    animation: ripple 0.6s linear;
-}
-
-@keyframes ripple {
-    to {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0;
-    }
-}
-
-/* 8. Contenu Générique */
-div.contents_dd4f85 {
-    /* Réduire l'effet de rebond */
-    animation: bounce 1.5s infinite;
-    transition: transform 0.1s ease, background-color 0.1s ease;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-1.5px); /* Réduit de -5px à -3px */
-    }
-}
-
-
-/* 9. Bouton Quick Actions */
-button.vc-settings-quickActions-pill {
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-button.vc-settings-quickActions-pill:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px var(--color-accent);
-}
-
-/* 10. Boutons de Relance et Profil Complet */
-button.button_dd4f85.lookBlank_dd4f85.footerButtonColor_a823cd.sizeLarge_dd4f85.fullWidth_dd4f85 {
-    background: var(--background-primary);
-    color: var(--color-text);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    font-family: var(--font-secondary);
-    padding: 8px 12px;
-}
-
-button.button_dd4f85.lookBlank_dd4f85.footerButtonColor_a823cd.sizeLarge_dd4f85.fullWidth_dd4f85:hover {
-    background: linear-gradient(45deg, var(--color-accent), var(--interactive-hover));
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
-}
-
-button.button_dd4f85.lookBlank_dd4f85.footerButtonColor_a823cd.sizeLarge_dd4f85.fullWidth_dd4f85:active {
-    transform: scale(0.95);
-    box-shadow: 0 2px 6px rgba(0, 255, 0, 0.2);
-}
-
-/* Bouton "Voir le profil complet" */
-button[name="Voir le profil complet"] {
-    background: var(--background-primary);
-    color: var(--color-text);
-    border: 2px solid var(--interactive-normal);
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-    font-family: var(--font-secondary);
-    padding: 10px 20px;
-}
-
-button[name="Voir le profil complet"]:hover {
-    background: var(--interactive-hover);
-    border-color: var(--color-accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.3);
-}
-
-button[name="Voir le profil complet"]:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 255, 0, 0.2);
-}
-
-/* Pulse Animation for Buttons */
-button.button_dd4f85.lookBlank_dd4f85.footerButtonColor_a823cd.sizeLarge_dd4f85.fullWidth_dd4f85,
-button[name="Voir le profil complet"] {
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 10px rgba(0, 255, 0, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
-    }
+.animated-text-field-active {
+  box-shadow: 0 0 15px var(--color-accent);
+  transform: scale(1.05);
 }
 
 /* ============================
@@ -506,7 +268,7 @@ button[name="Voir le profil complet"] {
 }
 
 /* ============================
-   6. Message Animation
+   6. Message Animations
    ============================ */
 
 /* Style de base pour les messages */
@@ -533,7 +295,30 @@ div[id^="message-content-"].received {
 }
 
 /* ============================
-   7. Additional Styling and Optimizations
+   7. Letter Animations
+   ============================ */
+
+/* Keyframes pour l'animation des lettres */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Classe pour les lettres animées */
+.typed-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInUp 0.3s forwards;
+}
+
+/* ============================
+   8. Additional Styling and Optimizations
    ============================ */
 
 /* Animated Text Field (Optional Enhancement) */
@@ -550,7 +335,7 @@ div[id^="message-content-"].received {
 }
 
 /* ============================
-   8. Remove Weird Square on Hover
+   9. Remove Weird Square on Hover
    ============================ */
 
 /* Supprimer l'outline par défaut sur les éléments interactifs */
@@ -558,10 +343,8 @@ button, a, div.item_a0.themed_a0, div.markup_f8f345.editor_a552a6.slateTextArea_
     outline: none;
 }
 
-
-
 /* ============================
-   9. Optimizations and Best Practices
+   10. Optimizations and Best Practices
    ============================ */
 
 /* Ensure all hover states do not add unwanted borders or boxes */
@@ -581,40 +364,38 @@ button[name="Voir le profil complet"]:hover {
 }
 
 /* ============================
-   10. Letter Animations
+   11. Input Field Animations
    ============================ */
 
-/* Keyframes pour l'animation des lettres */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Cibler la zone de saisie des messages */
+div[contenteditable="true"] {
+  /* Assurer une transition fluide pour la couleur et l'opacité */
+  transition: color 0.2s ease, background-color 0.2s ease;
+  will-change: color, opacity;
+  
+  /* Optimiser le rendu du texte */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  
+  /* Supprimer les ombres portées ou transformations lourdes si présentes */
+  box-shadow: none !important;
+  transform: none !important;
+  
+  /* Optionnel : Ajouter une légère animation lors du focus */
+  /* Ajoutez une classe supplémentaire via JavaScript si nécessaire */
 }
 
-/* Classe pour les lettres animées */
-.typed-letter {
-  display: inline-block;
+/* Ajouter une transition à l'opacité du texte */
+div[contenteditable="true"] span {
   opacity: 0;
+  transform: translateY(10px);
   animation: fadeInUp 0.3s forwards;
 }
 
-/* ============================
-   11. Animated Text Fields (Optional Enhancements)
-   ============================ */
-
-/* Style supplémentaire pour les champs de texte animés */
-.animated-text-field {
-  transition: box-shadow var(--transition-speed), transform var(--transition-speed);
-  box-shadow: 0 0 10px var(--color-accent);
-  transform: scale(1.02);
-}
-
-.animated-text-field-active {
-  box-shadow: 0 0 15px var(--color-accent);
-  transform: scale(1.05);
+/* Animation pour les caractères */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
