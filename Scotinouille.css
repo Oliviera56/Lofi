@@ -240,16 +240,20 @@ ul.content_eed6a8 li:hover {
 
 /* 3. Conteneur Générique */
 div.children_fc4f04 {
-    animation: rotateSlowly 20s linear infinite;
+    /* Remplacer la rotation par un effet de flottement moderne */
+    animation: float 3s ease-in-out infinite;
     transition: transform 0.3s ease;
 }
 
-@keyframes rotateSlowly {
-    from {
-        transform: rotate(0deg);
+@keyframes float {
+    0% {
+        transform: translateY(0px);
     }
-    to {
-        transform: rotate(360deg);
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
     }
 }
 
@@ -352,6 +356,7 @@ div.item_a0.themed_a0:active::after {
 
 /* 8. Contenu Générique */
 div.contents_dd4f85 {
+    /* Réduire l'effet de rebond */
     animation: bounce 1s infinite;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
@@ -361,13 +366,13 @@ div.contents_dd4f85 {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-5px);
+        transform: translateY(-3px); /* Réduit de -5px à -3px */
     }
 }
 
 div.contents_dd4f85:hover {
     background-color: var(--interactive-hover);
-    transform: translateY(-3px);
+    transform: translateY(-1.5px); /* Réduit de -3px à -1.5px */
 }
 
 /* 9. Bouton Quick Actions */
@@ -546,4 +551,38 @@ div[id^="message-content-"].received {
     50% { transform: translateX(2px); }
     75% { transform: translateX(-2px); }
     100% { transform: translateX(0); }
+}
+
+/* ============================
+   8. Remove Weird Square on Hover
+   ============================ */
+
+/* Supprimer l'outline par défaut sur les éléments interactifs */
+button, a, div.item_a0.themed_a0, div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b {
+    outline: none;
+}
+
+/* Optionnel : Ajouter un focus visible personnalisé pour l'accessibilité */
+button:focus, a:focus, div.item_a0.themed_a0:focus, div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b:focus {
+    box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.5);
+}
+
+/* ============================
+   9. Optimizations and Best Practices
+   ============================ */
+
+/* Ensure all hover states do not add unwanted borders or boxes */
+button, a, div.item_a0.themed_a0, div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b {
+    border: none;
+    box-shadow: none;
+}
+
+/* Re-define hover states without adding extra borders */
+div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b:hover,
+div.item_a0.themed_a0:hover,
+button.vc-settings-quickActions-pill:hover,
+button.button_dd4f85.lookBlank_dd4f85.footerButtonColor_a823cd.sizeLarge_dd4f85.fullWidth_dd4f85:hover,
+button[name="Voir le profil complet"]:hover {
+    /* Keep existing hover styles without adding borders */
+    /* These have been defined above */
 }
