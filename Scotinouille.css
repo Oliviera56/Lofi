@@ -44,7 +44,7 @@
   --shadow-secondary: 0 1px 2px rgba(0, 255, 0, 0.1);
 
   /* Transitions */
-  --transition-speed: 2s; /* Augmenté à 3s pour des transitions plus lentes */
+  --transition-speed: 2s; /* Modifié de 3s à 2s pour des transitions plus rapides */
 
   /* Backgrounds */
   --background-primary: #000000; /* Pure Black */
@@ -197,7 +197,260 @@ a:hover::after {
 }
 
 /* ============================
-   6. Conversation Switching Animations
+   4. Additional Animations for 10 Categories
+   ============================ */
+
+/* 1. Textarea d'Envoi de Message */
+div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b {
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--interactive-normal);
+    border-radius: var(--border-radius);
+}
+
+div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b:hover {
+    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
+    transform: scale(1.02);
+}
+
+div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b:focus {
+    border-color: var(--interactive-hover);
+    box-shadow: 0 0 8px var(--interactive-hover);
+    transform: scale(1.05);
+}
+
+/* 2. Liste des Messages Privés */
+ul.content_eed6a8 li {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+ul.content_eed6a8 li:hover {
+    background: var(--background-secondary-alt);
+    transform: translateY(-2px);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* 3. Conteneur Générique */
+div.children_fc4f04 {
+    animation: rotateSlowly 20s linear infinite;
+    transition: transform 0.3s ease;
+}
+
+@keyframes rotateSlowly {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+div.children_fc4f04:hover {
+    animation-play-state: paused;
+    transform: scale(1.05);
+}
+
+/* 4. Rectangle avec Pointer Events */
+rect.pointerEvents_c51b4e {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+}
+
+rect.pointerEvents_c51b4e:hover {
+    animation: pulse 1s infinite;
+}
+
+/* 5. Contenu Intérieur du Bouton */
+div.contents_dd4f85.buttonInner_f9d37d {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.5s forwards;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+div.contents_dd4f85.buttonInner_f9d37d:hover {
+    background-color: var(--interactive-hover);
+    transform: translateX(5px);
+}
+
+/* 6. Fond d'Overlay Complet */
+div.fullSizeOverlayBackground_c69a7b.overlayBackground_c69a7b.overlay_b9fccc {
+    opacity: 0;
+    animation: fadeInOverlay 0.5s forwards;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes fadeInOverlay {
+    to {
+        opacity: 1;
+    }
+}
+
+div.fullSizeOverlayBackground_c69a7b.overlayBackground_c69a7b.overlay_b9fccc:hover {
+    opacity: 0.8;
+}
+
+/* 7. Item Thématisé */
+div.item_a0.themed_a0 {
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+div.item_a0.themed_a0:hover {
+    box-shadow: 0 0 15px var(--color-accent);
+}
+
+div.item_a0.themed_a0:active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* 8. Contenu Générique */
+div.contents_dd4f85 {
+    animation: bounce 1s infinite;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+div.contents_dd4f85:hover {
+    background-color: var(--interactive-hover);
+    transform: translateY(-3px);
+}
+
+/* 9. Bouton Quick Actions */
+button.vc-settings-quickActions-pill {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.vc-settings-quickActions-pill:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--color-accent);
+}
+
+/* 10. Boutons de Relance et Profil Complet */
+button.button_dd4f85.lookBlank_dd4f85.footerButtonColor_a823cd.sizeLarge_dd4f85.fullWidth_dd4f85 {
+    background: var(--background-primary);
+    color: var(--color-text);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: var(--font-secondary);
+    padding: 8px 12px;
+}
+
+button.button_dd4f85.lookBlank_dd4f85.footerButtonColor_a823cd.sizeLarge_dd4f85.fullWidth_dd4f85:hover {
+    background: linear-gradient(45deg, var(--color-accent), var(--interactive-hover));
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
+}
+
+button.button_dd4f85.lookBlank_dd4f85.footerButtonColor_a823cd.sizeLarge_dd4f85.fullWidth_dd4f85:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 6px rgba(0, 255, 0, 0.2);
+}
+
+/* Bouton "Voir le profil complet" */
+button[name="Voir le profil complet"] {
+    background: var(--background-primary);
+    color: var(--color-text);
+    border: 2px solid var(--interactive-normal);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    font-family: var(--font-secondary);
+    padding: 10px 20px;
+}
+
+button[name="Voir le profil complet"]:hover {
+    background: var(--interactive-hover);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.3);
+}
+
+button[name="Voir le profil complet"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 255, 0, 0.2);
+}
+
+/* Pulse Animation for Buttons */
+button.button_dd4f85.lookBlank_dd4f85.footerButtonColor_a823cd.sizeLarge_dd4f85.fullWidth_dd4f85,
+button[name="Voir le profil complet"] {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 255, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+    }
+}
+
+/* ============================
+   5. Conversation Switching Animations
    ============================ */
 
 /* Contenu de conversation initial (visible) */
@@ -205,7 +458,7 @@ a:hover::after {
   opacity: 1;
   transform: translateX(0);
   transition: none; /* Supprimer les transitions pour éviter les conflits avec les animations */
-  animation: switchIn 2s forwards, fadeIn 2s forwards; /* Durée ajustée à 3s */
+  animation: switchIn 2s forwards, fadeIn 2s forwards; /* Durée ajustée à 2s */
 }
 
 /* Conversation active (cachée) */
@@ -213,7 +466,7 @@ a:hover::after {
   opacity: 0;
   transform: translateX(20px);
   transition: none; /* Supprimer les transitions pour éviter les conflits avec les animations */
-  animation: switchOut 2s forwards, fadeOut 2s forwards; /* Durée ajustée à 3s */
+  animation: switchOut 2s forwards, fadeOut 2s forwards; /* Durée ajustée à 2s */
 }
 
 /* Animation principale de changement de conversation */
@@ -252,7 +505,7 @@ a:hover::after {
 }
 
 /* ============================
-   7. Message Animation
+   6. Message Animation
    ============================ */
 
 /* Style de base pour les messages */
@@ -265,7 +518,7 @@ div[id^="message-content-"] {
   position: relative;
   opacity: 0.5; /* Opacité initiale lors de l'envoi */
   transform: translateY(5px); /* Légère translation initiale */
-  transition: opacity 2s ease, transform 2s ease, box-shadow 2s ease; /* Transition ajustée à 3s */
+  transition: opacity 2s ease, transform 2s ease, box-shadow 2s ease; /* Transition ajustée à 2s */
   /* Optionnel : ajouter une ombre légère */
   box-shadow: 0 2px 4px rgba(0, 255, 0, 0.1), 0 0 10px rgba(31, 82, 31, 0.5);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Ombre pour améliorer la lisibilité */
@@ -276,4 +529,21 @@ div[id^="message-content-"].received {
   opacity: 1;
   transform: translateY(0); /* Retour à la position initiale */
   box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2), 0 0 20px rgba(31, 82, 31, 0.7);
+}
+
+/* ============================
+   7. Additional Styling and Optimizations
+   ============================ */
+
+/* Animated Text Field (Optional Enhancement) */
+.animated-text-field {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
 }
