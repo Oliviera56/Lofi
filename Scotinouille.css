@@ -603,16 +603,11 @@ button[name="Voir le profil complet"]:hover {
   animation: fadeInUp 0.3s forwards;
 }
 
-/* Optionnel : Ajouter un léger délai pour chaque lettre */
-.typed-letter[data-delay] {
-  animation-delay: attr(data-delay ms);
-}
-
 /* ============================
    11. Animated Text Fields (Optional Enhancements)
    ============================ */
 
-/* Style supplémentaire si nécessaire pour les champs de texte animés */
+/* Style supplémentaire pour les champs de texte animés */
 .animated-text-field {
   transition: box-shadow var(--transition-speed), transform var(--transition-speed);
   box-shadow: 0 0 10px var(--color-accent);
