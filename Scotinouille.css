@@ -357,8 +357,8 @@ div.item_a0.themed_a0:active::after {
 /* 8. Contenu Générique */
 div.contents_dd4f85 {
     /* Réduire l'effet de rebond */
-    animation: bounce 1s infinite;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: bounce 1.5s infinite;
+    transition: transform 0.1s ease, background-color 0.1s ease;
 }
 
 @keyframes bounce {
@@ -366,14 +366,10 @@ div.contents_dd4f85 {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-3px); /* Réduit de -5px à -3px */
+        transform: translateY(-1.5px); /* Réduit de -5px à -3px */
     }
 }
 
-div.contents_dd4f85:hover {
-    background-color: var(--interactive-hover);
-    transform: translateY(-1.5px); /* Réduit de -3px à -1.5px */
-}
 
 /* 9. Bouton Quick Actions */
 button.vc-settings-quickActions-pill {
@@ -562,10 +558,7 @@ button, a, div.item_a0.themed_a0, div.markup_f8f345.editor_a552a6.slateTextArea_
     outline: none;
 }
 
-/* Optionnel : Ajouter un focus visible personnalisé pour l'accessibilité */
-button:focus, a:focus, div.item_a0.themed_a0:focus, div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b:focus {
-    box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.5);
-}
+
 
 /* ============================
    9. Optimizations and Best Practices
