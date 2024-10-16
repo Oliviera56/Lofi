@@ -44,7 +44,7 @@
   --shadow-secondary: 0 1px 2px rgba(0, 255, 0, 0.1);
 
   /* Transitions */
-  --transition-speed: 0.3s; /* Réduit pour des transitions plus rapides */
+  --transition-speed: 0.s; /* Modifié de 3s à 2s pour des transitions plus rapides */
 
   /* Backgrounds */
   --background-primary: #000000; /* Pure Black */
@@ -202,20 +202,20 @@ a:hover::after {
 
 /* 1. Textarea d'Envoi de Message */
 div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b {
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.1s ease;
-    border: 2px solid var(--interactive-normal);
-    border-radius: var(--border-radius);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.1s ease;
+  border: 2px solid var(--interactive-normal);
+  border-radius: var(--border-radius);
 }
 
 div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b:hover {
-    box-shadow: 0 4px 7px rgba(0, 200, 0, 0.3);
-    transform: scale(1.02);
+  box-shadow: 0 4px 7px rgba(0, 200, 0, 0.3);
+  transform: scale(1.02);
 }
 
 div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b:focus {
-    border-color: var(--interactive-hover);
-    box-shadow: 0 0 4px var(--interactive-hover);
-    transform: scale(1.03);
+  border-color: var(--interactive-hover);
+  box-shadow: 0 0 4px var(--interactive-hover);
+  transform: scale(1.03);
 }
 
 /* 2. Liste des Messages Privés */
@@ -366,14 +366,10 @@ div.contents_dd4f85 {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-1.5px); /* Réduit de -5px à -1.5px */
+        transform: translateY(-1.5px); /* Réduit de -5px à -3px */
     }
 }
 
-div.contents_dd4f85:hover {
-    background-color: var(--interactive-hover);
-    transform: translateY(-1.5px); /* Réduit de -3px à -1.5px */
-}
 
 /* 9. Bouton Quick Actions */
 button.vc-settings-quickActions-pill {
@@ -542,7 +538,7 @@ div[id^="message-content-"].received {
 
 /* Animated Text Field (Optional Enhancement) */
 .animated-text-field {
-    animation: shake 0.3s, textAppear 0.3s;
+    animation: shake 0.3s;
 }
 
 @keyframes shake {
@@ -551,11 +547,6 @@ div[id^="message-content-"].received {
     50% { transform: translateX(2px); }
     75% { transform: translateX(-2px); }
     100% { transform: translateX(0); }
-}
-
-@keyframes textAppear {
-    0% { opacity: 0.8; transform: scale(1.02); }
-    100% { opacity: 1; transform: scale(1); }
 }
 
 /* ============================
@@ -567,10 +558,7 @@ button, a, div.item_a0.themed_a0, div.markup_f8f345.editor_a552a6.slateTextArea_
     outline: none;
 }
 
-/* Optionnel : Ajouter un focus visible personnalisé pour l'accessibilité */
-button:focus, a:focus, div.item_a0.themed_a0:focus, div.markup_f8f345.editor_a552a6.slateTextArea_e52116.fontSize16Padding_d0696b:focus {
-    box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.5);
-}
+
 
 /* ============================
    9. Optimizations and Best Practices
@@ -590,4 +578,32 @@ button.button_dd4f85.lookBlank_dd4f85.footerButtonColor_a823cd.sizeLarge_dd4f85.
 button[name="Voir le profil complet"]:hover {
     /* Keep existing hover styles without adding borders */
     /* These have been defined above */
+}
+
+/* ============================
+   10. Letter Animations
+   ============================ */
+
+/* Keyframes pour l'animation des lettres */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Classe pour les lettres animées */
+.message-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInUp 0.5s forwards;
+}
+
+/* Optionnel : Ajouter un léger délai pour chaque lettre */
+.message-letter[data-delay] {
+  animation-delay: attr(data-delay)ms;
 }
