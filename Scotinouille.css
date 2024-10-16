@@ -205,7 +205,7 @@ a:hover::after {
   opacity: 1;
   transform: translateX(0);
   transition: none; /* Supprimer les transitions pour éviter les conflits avec les animations */
-  animation: switchIn 2s forwards, fadeIn 2s forwards; /* Durée ajustée à 2s */
+  animation: switchIn 10s forwards, fadeIn 2s forwards; /* Durée ajustée à 2s */
 }
 
 /* Conversation active (cachée) */
@@ -213,7 +213,7 @@ a:hover::after {
   opacity: 0;
   transform: translateX(20px);
   transition: none; /* Supprimer les transitions pour éviter les conflits avec les animations */
-  animation: switchOut 2s forwards, fadeOut 2s forwards; /* Durée ajustée à 2s */
+  animation: switchOut 10s forwards, fadeOut 2s forwards; /* Durée ajustée à 2s */
 }
 
 /* Animation principale de changement de conversation */
