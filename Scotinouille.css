@@ -597,13 +597,29 @@ button[name="Voir le profil complet"]:hover {
 }
 
 /* Classe pour les lettres animées */
-.message-letter {
+.typed-letter {
   display: inline-block;
   opacity: 0;
-  animation: fadeInUp 0.5s forwards;
+  animation: fadeInUp 0.3s forwards;
 }
 
 /* Optionnel : Ajouter un léger délai pour chaque lettre */
-.message-letter[data-delay] {
-  animation-delay: attr(data-delay)ms;
+.typed-letter[data-delay] {
+  animation-delay: attr(data-delay ms);
+}
+
+/* ============================
+   11. Animated Text Fields (Optional Enhancements)
+   ============================ */
+
+/* Style supplémentaire si nécessaire pour les champs de texte animés */
+.animated-text-field {
+  transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+  box-shadow: 0 0 10px var(--color-accent);
+  transform: scale(1.02);
+}
+
+.animated-text-field-active {
+  box-shadow: 0 0 15px var(--color-accent);
+  transform: scale(1.05);
 }
