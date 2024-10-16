@@ -44,7 +44,7 @@
   --shadow-secondary: 0 1px 2px rgba(0, 255, 0, 0.1);
 
   /* Transitions */
-  --transition-speed: 0.5.s; /* Modifié de 3s à 2s pour des transitions plus rapides */
+  --transition-speed: 0.3s; /* Modifié de 3s à 2s pour des transitions plus rapides */
 
   /* Backgrounds */
   --background-primary: #000000; /* Pure Black */
@@ -286,25 +286,7 @@ rect.pointerEvents_c51b4e:hover {
     animation: pulse 1s infinite;
 }
 
-/* 5. Contenu Intérieur du Bouton */
-div.contents_dd4f85.buttonInner_f9d37d {
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: slideIn 0.5s forwards;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
 
-@keyframes slideIn {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-div.contents_dd4f85.buttonInner_f9d37d:hover {
-    background-color: var(--interactive-hover);
-    transform: translateX(5px);
-}
 
 /* 6. Fond d'Overlay Complet */
 div.fullSizeOverlayBackground_c69a7b.overlayBackground_c69a7b.overlay_b9fccc {
@@ -578,52 +560,4 @@ button.button_dd4f85.lookBlank_dd4f85.footerButtonColor_a823cd.sizeLarge_dd4f85.
 button[name="Voir le profil complet"]:hover {
     /* Keep existing hover styles without adding borders */
     /* These have been defined above */
-}
-
-/* Cibler la zone de saisie des messages */
-div[contenteditable="true"] {
-  /* Assurer une transition fluide pour la couleur et l'opacité */
-  transition: color 0.2s ease, background-color 0.2s ease;
-  will-change: color, opacity;
-  
-  /* Optimiser le rendu du texte */
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  
-  /* Supprimer les ombres portées ou transformations lourdes si présentes */
-  box-shadow: none !important;
-  transform: none !important;
-  
-  /* Optionnel : Ajouter une légère animation lors du focus */
-  /* Ajoutez une classe supplémentaire via JavaScript si nécessaire */
-}
-
-/* Ajouter une transition à l'opacité du texte */
-div[contenteditable="true"] span {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInUp 0.3s forwards;
-}
-
-/* Animation pour les caractères */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animation pour les caractères */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Style pour les lettres tapées */
-span.typed-letter {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInUp 0.3s forwards;
 }
