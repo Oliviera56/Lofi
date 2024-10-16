@@ -1,173 +1,136 @@
 /**
- * @name Dark green
- * @description Version alternative du theme de Lilypichu
- * @version 1
+ * @name Dark Green
+ * @description Alternative Dark Green Theme inspired by Lilypichu for Discord via Vencord
+ * @version 1.1
  * @author scott__
  */
 
- @import url("https://nyri4.github.io/LilyPichu/main.css");
+/* Importing base stylesheet */
+@import url("https://nyri4.github.io/LilyPichu/main.css");
 
- :root {
-   /* --- Variables utilisateur --- */
- 
-   /* Border-radius pour tout le thème */
-   --border-radius: 20px;
- 
-   /* Polices */
-   --font-primary: 'Roboto', sans-serif;
-   --font-secondary: 'Poppins', sans-serif;
- 
-   /* Couleurs */
-   /* Couleurs principales */
-   --color-primary: #000000; /* Noir pur */
-   --color-background: #000000; /* Noir pur */
-   --color-accent: #1f521f; /* Vert vif pour les animations */
-   --color-text: #FFFFFF; /* Blanc */
-   --color-muted: #AAAAAA; /* Gris clair */
-   --color-border: #333333; /* Gris foncé */
- 
+/* ============================
+   1. CSS Variables
+   ============================ */
+:root {
+  /* --- User Variables --- */
+
+  /* Border-radius for the entire theme */
+  --border-radius: 20px;
+
+  /* Fonts */
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Poppins', sans-serif;
+
+  /* Colors */
+  /* Primary Colors */
+  --color-primary: #000000; /* Pure Black */
+  --color-background: #000000; /* Pure Black */
+  --color-accent: #1f521f; /* Vivid Green for animations */
+  --color-text: #FFFFFF; /* White */
+  --color-muted: #AAAAAA; /* Light Gray */
+  --color-border: #333333; /* Dark Gray */
+
   /* Interactive States */
-  --interactive-normal: #354d2b; /* Cyan Neon for interactive elements */
-  --interactive-hover: #577d5e; /* Pink Neon on hover */
+  --interactive-normal: #3d5b1a; /* Neon Cyan for interactive elements */
+  --interactive-hover: #527131; /* Neon Pink on hover */
   --text-normal: #FFFFFF; /* Text color */
- 
-   /* Gradients */
-   --gradient-primary: linear-gradient(135deg, #000000 0%, #333333 100%); /* Dégradé de noir */
-   --gradient-secondary: linear-gradient(135deg, #444444 0%, #666666 100%);
- 
-   /* Ombres */
-   --shadow-primary: 0 2px 4px rgba(0, 255, 0, 0.2); /* Vert pour les animations */
-   --shadow-secondary: 0 1px 2px rgba(0, 255, 0, 0.1);
- 
-   /* Transitions */
-   --transition-speed: 0.2s;
- 
-   /* Arrière-plans */
-   --background-primary: #000000; /* Noir pur */
-   --background-secondary: #111111; /* Gris très foncé */
-   --background-secondary-alt: #1a1a1a; /* Gris foncé */
-   --background-tertiary: #1a1a1a; /* Gris foncé */
-   --background-floating: #000000; /* Noir pur */
-   --background-accent: #215221; /* Vert vif pour les animations */
- 
-   /* Modificateurs */
-   --background-modifier-hover: rgba(255, 255, 255, 0.05);
-   --background-modifier-active: rgba(255, 255, 255, 0.1);
-   --background-modifier-selected: rgba(255, 255, 255, 0.15);
- 
-   /* Toasts */
-   --toast-background: var(--background-primary) !important;
-   --toast-header: var(--background-secondary) !important;
-   --toast-contents: var(--background-secondary-alt) !important;
-   --toast-border: var(--background-secondary-alt) !important;
- 
-   /* Inputs */
-   --input-background: var(--background-secondary);
-   
-   /* Scrollbars */
-   --scrollbar-auto-thumb: var(--background-tertiary);
-   --scrollbar-auto-track: var(--background-secondary-alt);
-   --scrollbar-thin-thumb: var(--background-tertiary);
-   --scrollbar-thin-track: transparent;
- }
- 
- /* Styles globaux */
- body {
-   font-family: var(--font-primary);
-   background: var(--color-background);
-   color: var(--color-text);
-   transition: background var(--transition-speed), color var(--transition-speed);
- }
- 
- /* Titres */
- h1, h2, h3, h4, h5, h6 {
-   font-family: var(--font-secondary);
-   color: var(--color-text);
-   text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3); /* Vert pour l'animation */
-   transition: text-shadow var(--transition-speed);
-   will-change: text-shadow;
- }
- 
- h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
-   text-shadow: 2px 2px 4px rgba(34, 101, 34, 0.5); /* Vert plus intense au survol */
- }
- 
- /* Liens */
- a {
-   color: var(--interactive-normal);
-   text-decoration: none;
-   position: relative;
-   transition: color var(--transition-speed), border-bottom var(--transition-speed);
-   will-change: color, border-bottom;
- }
- 
- a::after {
-   content: '';
-   position: absolute;
-   width: 0;
-   height: 2px;
-   display: block;
-   background: var(--background-accent); /* Vert pour l'animation */
-   transition: width var(--transition-speed);
-   left: 0;
-   bottom: -2px;
- }
- 
- a:hover::after {
-   width: 100%;
- }
- 
- /* Boutons */
- button,
- .lookFilled-1H2Jvj,
- .lookOutlined-3yKVGo:not(.colorWhite-1H92hK),
- .button-gradient,
- .button-light,
- .button-wave,
- .button-reflect,
- .button-reflect-light,
- .button-swipe,
- .button-rotate-pulse,
- .button-rotate-swipe,
- .button-rotate-pulse-hover,
- .button-rotate-reflect,
- .button-rotate-sparkle,
- .button-blink {
-   border-radius: var(--border-radius);
-   cursor: pointer;
-   transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
-   position: relative;
-   overflow: hidden;
-   font-family: var(--font-secondary);
-   will-change: transform, box-shadow;
- }
- 
- /* Boutons remplis */
- .lookFilled-1H2Jvj,
- button,
- .button-gradient,
- .button-light,
- .button-wave,
- .button-reflect,
- .button-reflect-light,
- .button-swipe,
- .button-rotate-pulse,
- .button-rotate-swipe,
- .button-rotate-pulse-hover,
- .button-rotate-reflect,
- .button-rotate-sparkle,
- .button-blink {
-   background: var(--background-secondary);
-   color: var(--text-normal);
-   padding: 10px 20px;
-   border: none;
-   box-shadow: var(--shadow-secondary);
-   z-index: 1;
- }
- 
- /* Boutons remplis - Couleur de base en gris */
-.lookFilled-1H2Jvj,
-button,
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #000000 0%, #333333 100%); /* Black Gradient */
+  --gradient-secondary: linear-gradient(135deg, #444444 0%, #666666 100%);
+
+  /* Shadows */
+  --shadow-primary: 0 2px 4px rgba(0, 255, 0, 0.2); /* Green for animations */
+  --shadow-secondary: 0 1px 2px rgba(0, 255, 0, 0.1);
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+
+  /* Backgrounds */
+  --background-primary: #000000; /* Pure Black */
+  --background-secondary: #111111; /* Very Dark Gray */
+  --background-secondary-alt: #1a1a1a; /* Dark Gray */
+  --background-tertiary: #1a1a1a; /* Dark Gray */
+  --background-floating: #000000; /* Pure Black */
+  --background-accent: #215221; /* Vivid Green for animations */
+
+  /* Modifiers */
+  --background-modifier-hover: rgba(255, 255, 255, 0.05);
+  --background-modifier-active: rgba(255, 255, 255, 0.1);
+  --background-modifier-selected: rgba(255, 255, 255, 0.15);
+
+  /* Toasts */
+  --toast-background: var(--background-primary) !important;
+  --toast-header: var(--background-secondary) !important;
+  --toast-contents: var(--background-secondary-alt) !important;
+  --toast-border: var(--background-secondary-alt) !important;
+
+  /* Inputs */
+  --input-background: var(--background-secondary);
+
+  /* Scrollbars */
+  --scrollbar-auto-thumb: var(--background-tertiary);
+  --scrollbar-auto-track: var(--background-secondary-alt);
+  --scrollbar-thin-thumb: var(--background-tertiary);
+  --scrollbar-thin-track: transparent;
+}
+
+/* ============================
+   2. Base Styles
+   ============================ */
+
+/* Body */
+body {
+  font-family: var(--font-primary);
+  background: var(--color-background);
+  color: var(--color-text);
+  transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  color: var(--color-text);
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3); /* Green for animation */
+  transition: text-shadow var(--transition-speed);
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+  text-shadow: 2px 2px 4px rgba(34, 101, 34, 0.5); /* More intense green on hover */
+}
+
+/* Links */
+a {
+  color: var(--interactive-normal);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition-speed), border-bottom var(--transition-speed);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--interactive-normal);
+  transition: width var(--transition-speed);
+  left: 0;
+  bottom: -2px;
+}
+
+a:hover::after {
+  width: 100%;
+  border-bottom: 2px solid var(--interactive-hover);
+}
+
+/* ============================
+   3. Components
+   ============================ */
+
+/* Buttons */
+.button,
+.button-filled,
+.button-outlined,
 .button-gradient,
 .button-light,
 .button-wave,
@@ -180,17 +143,42 @@ button,
 .button-rotate-reflect,
 .button-rotate-sparkle,
 .button-blink {
-    background: #555555; /* Gris de base */
-    color: var(--text-normal);
-    padding: 10px 20px;
-    border: none;
-    box-shadow: var(--shadow-secondary);
-    z-index: 1;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-secondary);
 }
 
-/* Effets au survol des boutons - Couleur au survol en vert */
-.lookFilled-1H2Jvj:hover,
-button:hover,
+/* Filled Buttons */
+.button-filled {
+  background: #555555; /* Base Gray */
+  color: var(--text-normal);
+  padding: 10px 20px;
+  border: none;
+  box-shadow: var(--shadow-secondary);
+}
+
+.button-filled:hover {
+  background: #2e6d2eb0; /* Green on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2); /* Green shadow for animation */
+}
+
+/* Outlined Buttons */
+.button-outlined:not(.colorWhite) {
+  color: var(--interactive-normal);
+  border: 1px solid var(--interactive-normal);
+  background: transparent;
+}
+
+.button-outlined:not(.colorWhite):hover {
+  background: var(--background-modifier-hover);
+  color: var(--interactive-normal);
+}
+
+/* Gradient Buttons */
 .button-gradient:hover,
 .button-light:hover,
 .button-wave:hover,
@@ -203,1093 +191,89 @@ button:hover,
 .button-rotate-reflect:hover,
 .button-rotate-sparkle:hover,
 .button-blink:hover {
-    background: #2e6d2eb0; /* Vert au survol */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2); /* Ombre verte pour l'animation */
+  background: #2e6d2eb0; /* Green on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2); /* Green shadow for animation */
 }
 
+/* ============================
+   6. Conversation Switching Animations
+   ============================ */
 
-button:hover::before,
-.lookFilled-1H2Jvj:hover::before,
-.button-gradient:hover::before,
-.button-light:hover::before,
-.button-wave:hover::before,
-.button-reflect:hover::before,
-.button-reflect-light:hover::before,
-.button-swipe:hover::before,
-.button-rotate-pulse:hover::before,
-.button-rotate-swipe:hover::before,
-.button-rotate-pulse-hover:hover::before,
-.button-rotate-reflect:hover::before,
-.button-rotate-sparkle:hover::before,
-.button-blink:hover::before {
-    left: 150%;
-}
-
-   /* Links */
-   a {
-    color: var(--interactive-normal);
-    text-decoration: none;
-    position: relative;
-    transition: color var(--transition-speed), border-bottom var(--transition-speed);
-    will-change: color, border-bottom;
-  }
-  
-  a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    display: block;
-    background: var(--interactive-normal);
-    transition: width var(--transition-speed);
-    left: 0;
-    bottom: -2px;
-  }
-  
-  a:hover::after {
-    width: 100%;
-    color: var(--interactive-hover);
-    border-bottom: 2px solid var(--interactive-hover);
-  }
- 
- /* Boutons outline */
- .lookOutlined-3yKVGo:not(.colorWhite-1H92hK) {
-   color: var(--interactive-normal);
-   border: 1px solid var(--interactive-normal);
-   background: transparent;
- }
- 
- .lookOutlined-3yKVGo:not(.colorWhite-1H92hK):hover {
-   background: var(--background-modifier-hover);
-   color: var(--interactive-normal);
- }
- 
- /* Bouton submit */
- button[type="submit"] {
-   background: var(--background-secondary);
-   color: var(--text-normal);
-   padding: 14px 20px;
-   border: none;
-   border-radius: var(--border-radius);
-   cursor: pointer;
-   transition: background var(--transition-speed), transform var(--transition-speed);
- }
- 
- button[type="submit"]:hover {
-   background: var(--background-secondary-alt);
-   transform: translateY(-2px);
- }
- 
- /* Toggle de la sidebar (élément animé) */
- .sidebar-toggle {
-   position: fixed;
-   top: 20px;
-   left: 20px;
-   width: 50px;
-   height: 50px;
-   background: var(--background-accent); /* Vert pour l'animation */
-   border: none;
-   border-radius: 50%;
-   cursor: pointer;
-   box-shadow: var(--shadow-secondary);
-   transition: transform var(--transition-speed);
-   z-index: 1001;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   will-change: transform;
- }
- 
- .sidebar-toggle::before {
-   content: '≡';
-   font-size: 24px;
-   color: var(--text-normal);
- }
- 
- .sidebar-toggle:hover {
-   transform: rotate(45deg);
- }
- 
- /* Sidebar */
- .sidebar {
-   position: fixed;
-   top: 0;
-   left: -250px;
-   width: 250px;
-   height: 100%;
-   background: var(--background-secondary);
-   box-shadow: var(--shadow-primary);
-   transition: left var(--transition-speed) ease-in-out;
-   z-index: 1000;
-   overflow-y: auto;
-   will-change: left;
- }
- 
- .sidebar.active {
-   left: 0;
- }
- 
- /* Contenu principal */
- .main-content {
-   display: flex;
-   flex-direction: row;
-   gap: 20px;
-   padding: 20px;
-   transition: margin-left var(--transition-speed);
- }
- 
- .sidebar.active ~ .main-content {
-   margin-left: 250px;
- }
- 
- .content {
-   flex: 1;
- }
- 
- /* Bannières dynamiques (élément animé) */
- .banner {
-   background: var(--background-accent); /* Vert pour l'animation */
-   color: var(--text-normal);
-   padding: 15px 20px;
-   text-align: center;
-   position: relative;
-   box-shadow: var(--shadow-primary);
-   animation: slideDown 0.3s ease-out forwards;
-   border-radius: var(--border-radius);
-   font-family: var(--font-secondary);
-   will-change: transform, opacity;
- }
- 
- /* Keyframes pour l'animation de la bannière */
- @keyframes slideDown {
-   from { transform: translateY(-10px); opacity: 0; }
-   to { transform: translateY(0); opacity: 1; }
- }
- 
- /* Notifications temporisées (élément animé) */
- .notification {
-   position: fixed;
-   top: 80px;
-   right: 20px;
-   background: var(--background-accent); /* Vert pour l'animation */
-   color: var(--text-normal);
-   padding: 15px 20px;
-   border-radius: var(--border-radius);
-   box-shadow: var(--shadow-primary);
-   opacity: 0;
-   animation: fadeInOut 4s forwards;
-   z-index: 1002;
-   font-family: var(--font-secondary);
-   will-change: transform, opacity;
- }
- 
- @keyframes fadeInOut {
-   0% { opacity: 0; transform: translateY(-10px); }
-   10% { opacity: 1; transform: translateY(0); }
-   90% { opacity: 1; transform: translateY(0); }
-   100% { opacity: 0; transform: translateY(-10px); }
- }
- 
- /* Menus déroulants améliorés */
- .dropdown-menu {
-   background: var(--background-secondary);
-   border-radius: var(--border-radius);
-   box-shadow: var(--shadow-primary);
-   padding: 10px 0;
-   transition: opacity var(--transition-speed), transform var(--transition-speed);
-   opacity: 0;
-   transform: translateY(-10px);
-   pointer-events: none;
-   position: absolute;
-   top: 100%;
-   left: 0;
-   width: 100%;
-   z-index: 1003;
- }
- 
- .dropdown:hover .dropdown-menu {
-   opacity: 1;
-   transform: translateY(0);
-   pointer-events: auto;
- }
- 
- .dropdown-menu a {
-   display: block;
-   padding: 10px 20px;
-   color: var(--text-normal);
-   transition: background var(--transition-speed), color var(--transition-speed);
-   font-family: var(--font-secondary);
- }
- 
- .dropdown-menu a:hover {
-   background: var(--background-modifier-hover);
-   color: var(--text-normal);
- }
- 
- /* Formulaires modernisés */
- .contact-section {
-   background: var(--background-secondary);
-   padding: 40px 20px;
-   border-radius: var(--border-radius);
-   box-shadow: var(--shadow-primary);
-   max-width: 600px;
-   margin: 40px auto;
-   animation: fadeInForm 1s ease-out forwards;
- }
- 
- @keyframes fadeInForm {
-   from { opacity: 0; transform: translateY(10px); }
-   to { opacity: 1; transform: translateY(0); }
- }
- 
- .contact-section h2 {
-   text-align: center;
-   margin-bottom: 20px;
-   color: var(--text-normal);
-   animation: fadeInTitle 1s ease-out;
- }
- 
- @keyframes fadeInTitle {
-   from { opacity: 0; }
-   to { opacity: 1; }
- }
- 
- .contact-section form {
-   display: flex;
-   flex-direction: column;
- }
- 
- .contact-section input,
- .contact-section textarea,
- .contact-section select {
-   margin-bottom: 15px;
-   padding: 12px 20px;
-   border: 1px solid var(--color-border);
-   border-radius: var(--border-radius);
-   background: var(--input-background);
-   color: var(--text-normal);
-   transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
-   width: 100%;
-   box-sizing: border-box;
-   font-family: var(--font-primary);
- }
- 
- .contact-section input:focus,
- .contact-section textarea:focus,
- .contact-section select:focus {
-   border-color: var(--background-accent); /* Vert pour l'animation de focus */
-   box-shadow: 0 0 5px var(--background-accent);
- }
- 
- /* Grilles et mises en page flexibles */
- .container {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 20px;
- }
- 
- .card {
-   flex: 1 1 calc(33.333% - 20px);
-   position: relative;
-   overflow: hidden;
-   background: var(--background-primary);
-   border-radius: var(--border-radius);
-   box-shadow: var(--shadow-primary);
-   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-   cursor: pointer;
-   animation: fadeInElement 1s ease-out forwards;
-   will-change: transform, box-shadow;
- }
- 
- .card::before {
-   content: '';
-   position: absolute;
-   top: -50%;
-   left: -50%;
-   width: 200%;
-   height: 200%;
-   background: var(--gradient-primary);
-   transform: rotate(45deg);
-   opacity: 0.1;
-   transition: opacity var(--transition-speed);
- }
- 
- .card:hover::before {
-   opacity: 0.2;
- }
- 
- .card:hover {
-   transform: translateY(-5px) scale(1.01);
-   box-shadow: 0 8px 16px rgba(0, 255, 0, 0.2); /* Ombre verte pour l'animation */
- }
- 
- @media (max-width: 1024px) {
-   .card {
-     flex: 1 1 calc(50% - 20px);
-   }
- }
- 
- @media (max-width: 600px) {
-   .card {
-     flex: 1 1 100%;
-   }
- }
- 
- /* Avatar */
- .avatar {
-   width: 50px;
-   height: 50px;
-   border-radius: 50%;
-   border: 3px solid var(--background-accent); /* Vert pour l'animation */
-   box-shadow: var(--shadow-secondary);
-   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-   overflow: hidden;
-   will-change: transform, box-shadow;
- }
- 
- .avatar img {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   display: block;
-   border-radius: 50%;
- }
- 
- /* Carte de profil */
- .profile-card {
-   display: flex;
-   align-items: center;
-   background: var(--background-primary);
-   padding: 20px;
-   border-radius: var(--border-radius);
-   box-shadow: var(--shadow-primary);
-   transition: box-shadow var(--transition-speed), transform var(--transition-speed);
-   cursor: pointer;
-   animation: fadeInElement 1s ease-out forwards;
-   will-change: box-shadow, transform;
- }
- 
- .profile-card:hover {
-   box-shadow: 0 8px 16px rgba(0, 255, 0, 0.2); /* Ombre verte au survol */
-   transform: translateY(-3px);
- }
- 
- /* Scrollbar personnalisé */
- ::-webkit-scrollbar {
-   width: 12px;
- }
- 
- ::-webkit-scrollbar-track {
-   background: var(--background-secondary-alt);
-   border-radius: 6px;
- }
- 
- ::-webkit-scrollbar-thumb {
-   background-color: var(--background-tertiary);
-   border-radius: 6px;
-   border: 3px solid var(--background-secondary-alt);
- }
- 
- ::-webkit-scrollbar-thumb:hover {
-   background-color: var(--background-accent); /* Vert au survol */
- }
- 
- /* Élément avec fondu en entrée */
- .fade-in-element {
-   opacity: 0;
-   animation: fadeInElement 1s forwards;
- }
- 
- @keyframes fadeInElement {
-   to { opacity: 1; }
- }
- 
- /* Animation de chargement */
- .loading {
-   animation: loading 1s infinite;
- }
- 
- @keyframes loading {
-   0% { opacity: 0.5; }
-   50% { opacity: 1; }
-   100% { opacity: 0.5; }
- }
- 
- /* Section parallax (simplifiée) */
- .parallax-section {
-   background-attachment: fixed;
-   background-size: cover;
-   background-position: center;
-   height: 400px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: var(--text-normal);
-   text-shadow: 2px 2px 4px rgba(0, 255, 0, 0.3); /* Vert pour l'animation */
-   border-radius: var(--border-radius);
- }
- 
- /* Styles des modales */
- .modal {
-   backdrop-filter: blur(10px);
-   background: rgba(0, 0, 0, 0.8);
-   border: 1px solid rgba(0, 255, 0, 0.3); /* Vert pour la bordure */
-   border-radius: var(--border-radius);
-   padding: 20px;
-   box-shadow: var(--shadow-primary);
-   animation: modalOpen 0.3s ease-out forwards;
-   font-family: var(--font-primary);
-   will-change: transform, opacity;
- }
- 
- @keyframes modalOpen {
-   from { opacity: 0; transform: scale(0.8); }
-   to { opacity: 1; transform: scale(1); }
- }
- 
- /* Effets de transparence */
- .transparent {
-   background: rgba(255, 255, 255, 0.05);
-   border-radius: var(--border-radius);
-   padding: 20px;
-   transition: background var(--transition-speed);
- }
- 
- .transparent:hover {
-   background: rgba(255, 255, 255, 0.1);
- }
- 
- /* Effets avancés sur les formulaires */
- input[type="text"],
- input[type="password"],
- textarea,
- select {
-   width: 100%;
-   padding: 12px 20px;
-   margin: 8px 0;
-   display: inline-block;
-   border: 1px solid var(--color-border);
-   border-radius: var(--border-radius);
-   box-sizing: border-box;
-   background: var(--input-background);
-   color: var(--text-normal);
-   transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
-   font-family: var(--font-primary);
- }
- 
- input[type="text"]:focus,
- input[type="password"]:focus,
- textarea:focus,
- select:focus {
-   border-color: var(--background-accent); /* Vert pour l'animation de focus */
-   box-shadow: 0 0 5px var(--background-accent);
- }
- 
- /* Tooltip */
- .tooltip {
-   position: relative;
-   display: inline-block;
-   cursor: pointer;
- }
- 
- .tooltip::after {
-   content: attr(data-tooltip);
-   position: absolute;
-   bottom: 125%;
-   left: 50%;
-   transform: translateX(-50%);
-   background-color: var(--background-secondary-alt);
-   color: var(--text-normal);
-   padding: 5px 10px;
-   border-radius: var(--border-radius);
-   white-space: nowrap;
-   opacity: 0;
-   pointer-events: none;
-   transition: opacity var(--transition-speed), transform var(--transition-speed);
-   font-size: 12px;
- }
- 
- .tooltip:hover::after {
-   opacity: 1;
-   transform: translateX(-50%) translateY(-5px);
- }
- 
- /* Notifications améliorées avec icônes */
- .notification::before {
-   content: '🔔';
-   margin-right: 10px;
- }
- 
- /* Animations supplémentaires pour des transitions fluides */
- 
- /* Animation de pulsation (élément animé) */
- @keyframes pulse {
-   0% {
-     box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
-   }
-   70% {
-     box-shadow: 0 0 0 10px rgba(0, 255, 0, 0);
-   }
-   100% {
-     box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
-   }
- }
- 
- /* Effet de pulsation pour les boutons (élément animé) */
- .lookFilled-1H2Jvj {
-   animation: pulse 2s infinite;
- }
- 
- /* Effet de lueur au survol (élément animé) */
- .glow-hover:hover {
-   box-shadow: 0 0 10px var(--background-accent), 0 0 20px var(--background-accent), 0 0 30px var(--background-accent);
-   transition: box-shadow var(--transition-speed);
- }
- 
- /* Bordure en gradient (élément animé) */
- .gradient-border {
-   border: 2px solid;
-   border-image-slice: 1;
-   border-width: 2px;
-   border-image-source: var(--gradient-primary);
-   border-radius: var(--border-radius);
- }
- 
- /* Arrière-plan animé pour les sections (élément animé) */
- .animated-background {
-   background: linear-gradient(-45deg, #000000, #111111, #1a1a1a, #333333);
-   background-size: 400% 400%;
-   animation: gradientBG 15s ease infinite;
-   border-radius: var(--border-radius);
-   padding: 20px;
- }
- 
- @keyframes gradientBG {
-   0% { background-position: 0% 50%; }
-   50% { background-position: 100% 50%; }
-   100% { background-position: 0% 50%; }
- }
- 
- /* Icône de chargement (élément animé) */
- .loader-icon {
-   animation: spin 2s linear infinite;
- }
- 
- @keyframes spin {
-   from { transform: rotate(0deg); }
-   to { transform: rotate(360deg); }
- }
- /* Effet de brillance sur les avatars au survol */
-.avatar-1BDn8e:hover {
-  box-shadow: 0 0 10px rgba(31, 82, 31, 0.8);
-  transition: box-shadow 0.3s ease-in-out;
-}
-/* Vague lumineuse sur les barres de chargement */
-.progressBar-3D65CJ::after {
-  content: '';
-  position: absolute;
-  left: -100%;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(31, 82, 31, 0.5), transparent);
-  animation: loadingWave 2s infinite;
-}
-
-@keyframes loadingWave {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-/* Soulignement progressif des textes sélectionnés ou copiés */
-.messageContent-2qWWxC::selection {
-  background: transparent;
-}
-
-.messageContent-2qWWxC::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: rgba(31, 82, 31, 0.8);
-  transition: width 0.3s ease-in-out;
-}
-
-.messageContent-2qWWxC:hover::after {
-  width: 100%;
-}
-/* Effet de vibration sur les champs de texte en cas d'erreur */
-.textArea-2Spzkt.error-3pV4ci {
-  animation: shake 0.3s;
-}
-
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-/* Expansion fluide des fenêtres de chat actives */
-.chatContent-a9vAAp.active-3srzAo {
-  transform: scale(1.02);
-  transition: transform 0.3s ease-in-out;
-}
-/* Zoom léger sur les images au survol */
-.imageWrapper-38T7d9:hover img {
-  transform: scale(3);
-  transition: transform 0.3s ease-in-out;
-}
-/* Effet de fondu sur les nouveaux messages */
-.messageListItem-ZZ7v6g {
-  opacity: 0;
-  animation: fadeInMessage 0.5s forwards;
-}
-
-@keyframes fadeInMessage {
-  to {
-    opacity: 1;
-  }
-}
-/* Lueur subtile autour des avatars des utilisateurs en ligne */
-.member-2FrNV0.online-1YAvBq .avatar-1BDn8e {
-  box-shadow: 0 0 5px rgba(31, 82, 31, 0.8);
-}
-/* Animation circulaire autour de l'avatar lors de la prise de parole */
-.voiceUser-28g8XU.speaking-25BAYo .avatar-1BDn8e {
-  border: 2px solid rgba(31, 82, 31, 0.8);
-  animation: pulseCircle 1s infinite;
-}
-
-@keyframes pulseCircle {
-  0% {
-    box-shadow: 0 0 0 0 rgba(31, 82, 31, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(31, 82, 31, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(31, 82, 31, 0);
-  }
-}
-/* Animation de rebond pour les nouvelles notifications */
-.unreadMentionsIndicatorTop-3p3e7i {
-  animation: bounce 1s infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-5px);
-  }
-  60% {
-    transform: translateY(-3px);
-  }
-}
-/* Transition douce lors du changement de canal */
-.chat-3bRxxu {
-  transition: opacity 0.3s ease-in-out;
-}
-
-.chat-3bRxxu.hidden {
-  opacity: 0;
-}
-/* Les barres de statut s'élargissent au survol */
-.status-3I6ojb:hover {
-  transform: scaleX(1.2);
-  transition: transform 0.2s ease-in-out;
-}
-/* Aperçu de lien avec animation de zoom et glissement */
-.embedWrapper-lXpS3L {
-  transform: scale(0.95) translateY(10px);
-  opacity: 0;
-  animation: zoomInEmbed 0.3s forwards;
-}
-
-@keyframes zoomInEmbed {
-  to {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-  }
-}
-/* Onde autour de l'icône de volume lors de la modification */
-.volumeSlider-2y5Uhl::after {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  border-radius: 50%;
-  border: 2px solid rgba(31, 82, 31, 0.5);
-  animation: soundWave 1s infinite;
-}
-
-@keyframes soundWave {
-  0% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
-/* Effet de balayage lors de l'affichage des réactions */
-.reaction-1hd86g {
-  overflow: hidden;
-  position: relative;
-}
-
-.reaction-1hd86g::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(31, 82, 31, 0.2);
-  animation: slideIn 0.5s forwards;
-}
-
-@keyframes slideIn {
-  to {
-    left: 100%;
-  }
-}
-/* Rotation légère des avatars en vocal à la connexion */
-.voiceUser-28g8XU .avatar-1BDn8e {
-  animation: rotateAvatar 1s ease-out;
-}
-
-@keyframes rotateAvatar {
-  from {
-    transform: rotate(-10deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-/* Effet de vague autour des éléments cliqués */
-.button-38aScr, .clickable-1bVtEA {
-  position: relative;
-  overflow: hidden;
-}
-
-.button-38aScr::after, .clickable-1bVtEA::after {
-  content: '';
-  position: absolute;
-  background: rgba(31, 82, 31, 0.3);
-  border-radius: 50%;
-  transform: scale(0);
-  opacity: 0;
-  transition: transform 0.5s, opacity 1s;
-}
-
-.button-38aScr:active::after, .clickable-1bVtEA:active::after {
-  transform: scale(4);
+/* Contenu de conversation initial (visible) */
+[class*="chatContent"] {
   opacity: 1;
-  transition: transform 0s, opacity 0s;
-}
-/* Soulignement dégradé animé au survol du texte */
-.messageContent-2qWWxC:hover {
-  background-image: linear-gradient(to right, rgba(31, 82, 31, 0.5), rgba(31, 82, 31, 0));
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  background-size: 100% 2px;
-  transition: background-size 0.3s;
-}
-/* Zoom progressif des avatars dans les messages directs au survol */
-.privateChannels-1nO12o .avatar-1BDn8e:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
-}
-/* Changement de couleur des liens copiés */
-.markup-2BOw-j a:active {
-  color: rgba(31, 82, 31, 0.8);
-  transition: color 0.3s ease-in-out;
-}
-/* Les cartes de profil s'élèvent et affichent une ombre au survol */
-.userPopout-4pfA0d {
-  transition: transform 0.3s, box-shadow 0.3s;
+  transform: translateX(0);
+  transition: none; /* Supprimer les transitions pour éviter les conflits avec les animations */
+  animation: switchIn 30s forwards, fadeIn 2s forwards; /* Appliquer les animations */
 }
 
-.userPopout-4pfA0d:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(31, 82, 31, 0.2);
-}
-/* Ombre dynamique autour des fenêtres contextuelles à l'apparition */
-.layer-3QrUeG {
-  animation: popupShadow 0.3s forwards;
-}
-
-@keyframes popupShadow {
-  from {
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  }
-  to {
-    box-shadow: 0 0 15px rgba(31, 82, 31, 0.3);
-  }
-}
-/* --- Effets personnalisés mis à jour avec des sélecteurs génériques --- */
-
-/* 1. Effet de brillance sur les avatars au survol */
-[class*="avatar"] img:hover,
-[class*="avatar"]::after {
-  box-shadow: 0 0 10px rgba(31, 82, 31, 0.8);
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-@keyframes loadingWave {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-/* 3. Soulignement progressif des textes sélectionnés ou copiés */
-.messageContent:hover::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: rgba(31, 82, 31, 0.8);
-  animation: underlineExpand 0.3s forwards;
-}
-
-@keyframes underlineExpand {
-  to {
-    width: 100%;
-  }
-}
-
-/* 4. Effet de vibration sur les champs de texte en cas d'erreur */
-textarea[class*="textArea"].error {
-  animation: shake 0.3s;
-}
-
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
-/* 5. Expansion fluide des fenêtres de chat actives */
-div[class*="chatContent"].active {
-  transform: scale(1.02);
-  transition: transform 0.3s ease-in-out;
-}
-
-/* 6. Zoom léger sur les images au survol */
-.imageWrapper:hover img,
-img[class*="image"]:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
-}
-
-/* 7. Effet de fondu sur les nouveaux messages */
-li[class*="messageListItem"],
-div[class*="message"] {
+/* Conversation active (cachée) */
+[class*="chatContent"].active {
   opacity: 0;
-  animation: fadeInMessage 1s forwards;
+  transform: translateX(20px);
+  transition: none; /* Supprimer les transitions pour éviter les conflits avec les animations */
+  animation: switchOut 30s forwards, fadeOut 2s forwards; /* Appliquer les animations */
 }
 
-@keyframes fadeInMessage {
-  to {
-    opacity: 1;
-  }
-}
-
-/* 8. Lueur subtile autour des avatars des utilisateurs en ligne */
-div[class*="member"].statusOnline .avatar img {
-  box-shadow: 0 0 5px rgba(31, 82, 31, 0.8);
-}
-
-/* 9. Animation circulaire autour de l'avatar lors de la prise de parole */
-div[class*="voiceUser"].speaking .avatar img {
-  border: 2px solid rgba(31, 82, 31, 0.8);
-  animation: pulseCircle 1s infinite;
-}
-
-@keyframes pulseCircle {
+/* Animation principale de changement de conversation */
+@keyframes switchIn {
   0% {
-    box-shadow: 0 0 0 0 rgba(31, 82, 31, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(31, 82, 31, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(31, 82, 31, 0);
-  }
-}
-
-/* 10. Animation de rebond pour les nouvelles notifications */
-div[class*="unreadMentionsIndicator"] {
-  animation: bounce 1s infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-5px);
-  }
-  60% {
-    transform: translateY(-3px);
-  }
-}
-
-/* 11. Transition douce lors du changement de canal */
-div[class*="chat"] {
-  transition: opacity 0.3s ease-in-out;
-}
-
-div[class*="chat"].hidden {
-  opacity: 0;
-}
-
-/* 12. Les barres de statut s'élargissent au survol */
-div[class*="status"]::before {
-  transition: transform 0.2s ease-in-out;
-}
-
-div[class*="status"]:hover::before {
-  transform: scaleX(1.2);
-}
-
-/* 13. Aperçu de lien avec animation de zoom et glissement */
-div[class*="embedWrapper"] {
-  transform: scale(0.95) translateY(10px);
-  opacity: 0;
-  animation: zoomInEmbed 0.3s forwards;
-}
-
-@keyframes zoomInEmbed {
-  to {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-  }
-}
-
-/* 14. Onde autour de l'icône de volume lors de la modification */
-div[class*="volumeSlider"]::after {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  border-radius: 50%;
-  border: 2px solid rgba(31, 82, 31, 0.5);
-  animation: soundWave 1s infinite;
-}
-
-@keyframes soundWave {
-  0% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(1.5);
     opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-/* 15. Effet de balayage lors de l'affichage des réactions */
-div[class*="reaction"] {
-  overflow: hidden;
+@keyframes switchOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+/* Animation de fade-in douce */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Animation de fade-out douce */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* ============================
+   7. message animation
+   ============================ */
+
+
+/* Style de base pour les messages */
+.message {
+  background: var(--background-secondary-alt);
+  color: var(--color-text);
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  margin: 10px 0;
   position: relative;
+  opacity: 0.5; /* Opacité initiale lors de l'envoi */
+  transform: translateY(0); /* Position initiale */
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+  /* Optionnel : ajouter une ombre légère */
+  box-shadow: 0 2px 4px rgba(0, 255, 0, 0.1), 0 0 10px rgba(31, 82, 31, 0.5);
 }
 
-div[class*="reaction"]::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(31, 82, 31, 0.2);
-  animation: slideIn 0.5s forwards;
-}
-
-@keyframes slideIn {
-  to {
-    left: 100%;
-  }
-}
-
-/* 16. Rotation légère des avatars en vocal à la connexion */
-div[class*="voiceUser"] .avatar img {
-  animation: rotateAvatar 1s ease-out;
-}
-
-@keyframes rotateAvatar {
-  from {
-    transform: rotate(-10deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-
-
-/* 18. Soulignement dégradé animé au survol du texte */
-.messageContent:hover {
-  background-image: linear-gradient(to right, rgba(31, 82, 31, 0.5), rgba(31, 82, 31, 0));
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  background-size: 100% 2px;
-  transition: background-size 0.3s;
-}
-
-/* 19. Zoom progressif des avatars dans les messages directs au survol */
-div[class*="privateChannels"] .avatar img:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
-}
-
-/* 20. Changement de couleur des liens copiés */
-a:active {
-  color: rgba(31, 82, 31, 0.8);
-  transition: color 0.3s ease-in-out;
-}
-
-/* 21. Les cartes de profil s'élèvent et affichent une ombre au survol */
-div[class*="userPopout"] {
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-div[class*="userPopout"]:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(31, 82, 31, 0.2);
-}
-
-/* 22. Ombre dynamique autour des fenêtres contextuelles à l'apparition */
-div[class*="layer"] {
-  animation: popupShadow 0.3s forwards;
-}
-
-@keyframes popupShadow {
-  from {
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  }
-  to {
-    box-shadow: 0 0 15px rgba(31, 82, 31, 0.3);
-  }
+/* Lorsque le message est confirmé par Discord */
+.message.received {
+  opacity: 1;
+  transform: translateY(0); /* Vous pouvez ajuster cette transformation si nécessaire */
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2), 0 0 20px rgba(31, 82, 31, 0.7);
 }
